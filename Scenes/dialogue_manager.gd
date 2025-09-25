@@ -21,8 +21,3 @@ func _ready() -> void:
 	elif data["SD1_1"]["text"] is String:
 		print(data["SD1_1"]["text"])
 	
-	pass
-	#
-#func _physics_process(_delta: float) -> void:
-	#
-	#pass

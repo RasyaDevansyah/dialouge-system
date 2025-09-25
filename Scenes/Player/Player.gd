@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name Player
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -34,7 +34,8 @@ var head_bobbing_index = 0.0
 var def_head_pos_y : float
 var lerp_speed : float = 10.0
 var air_lerp_speed : float = 3.0
-
+var can_move : bool = true
+var can_look : bool = true
 var last_velocity = Vector2.ZERO
 var direction : Vector3
 
@@ -44,15 +45,19 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
+func set_player_control(value : bool):
+	can_move = value
+	can_look = value
+
 func _input(event):
 	#mouse looking
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and can_look:
 		cam_holder.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
 		cam_holder.rotation.x = clamp(cam_holder.rotation.x, deg_to_rad(-89),deg_to_rad(89))
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
 
 func _physics_process(delta):
-	var input_dir = Input.get_vector("left", "right", "forward", "backward")
+	var input_dir =  Input.get_vector("left", "right", "forward", "backward") if can_move else Vector2.ZERO
 	
 	if Input.is_action_pressed("sprint"):
 		#sprinting

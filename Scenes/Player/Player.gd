@@ -117,14 +117,3 @@ func _physics_process(delta):
 func cam_tilt_func(input_x, rot, delta):
 	if cam_tilt:
 		cam_tilt.rotation.z = lerp(cam_tilt.rotation.z, -input_x * rot, 10 * delta)
-
-
-func _on_melee_manager_applied_impulse(dir):
-	print(dir)
-	if is_on_floor():
-		direction = transform.basis * Vector3.FORWARD * dir
-	else:
-		direction = transform.basis * Vector3.FORWARD * dir * 0.5
-	pass # Replace with function body.
-	
-	#abcd

@@ -3,7 +3,7 @@
 	"character": "papyrus",
 	"expression": "mad",
 	"text": [
-	  "SANS!!",
+	  "SANS!!\n",
       "WHERE'S THE PUZZLE!!!"
 	]
   },
@@ -11,7 +11,7 @@
 	"character": "sans",
 	"expression": "neutral",
 	"text": [
-	  "it's right there.",
+	  "it's right there.\n",
       "on the ground."
 	]
   },
@@ -20,7 +20,7 @@
 	"expression": "neutral",
 	"text": [
 	  "trust me.",
-      "there's no way they can get past this one."
+      " there's no way they can get past this one."
 	],
 	"function": "end_dialogue"
   },
@@ -28,7 +28,7 @@
 	"character": "papyrus",
 	"expression": "mad",
 	"text": [
-	  "SANS!!!",
+	  "SANS!!!\n",
       "THAT DIDN'T DO ANYTHING!"
 	]
   },
@@ -46,7 +46,7 @@
 	"character": "papyrus",
 	"expression": "mad",
 	"text": [
-	  "WHAT!?",
+	  "WHAT!?\n",
       "CROSSWORD!?"
 	]
   },
@@ -69,7 +69,7 @@
 	"character": "sans",
 	"expression": "neutral",
 	"text": [
-	  "what? really, dude?",
+	  "what? really, dude? ",
       "that easy-peasy word scramble?"
 	]
   },
@@ -87,7 +87,7 @@
 	"character": "papyrus",
 	"expression": "mad",
 	"text": [
-	  "HUMAN!!!",
+	  "HUMAN!!!\n",
       "SOVE THIS DISPUTE!"
 	]
   },
@@ -96,8 +96,8 @@
 	"expression": null,
 	"text": "(which is harder?)",
 	"go to": [
-	  "SD1_16",
-      "SD1_19"
+	  "16",
+      "19"
 	],
 	"options": [
 	  "Jumble",
@@ -121,7 +121,8 @@
   "SD1_17": {
 	"character": "papyrus",
 	"expression": "happy",
-	"text": "IF THEY ALSO FIND JUMBLE SO DIFFICULT!"
+	"text": "IF THEY ALSO FIND JUMBLE SO DIFFICULT!",
+	"function": "end_dialogue"
   },
   "SD1_18": {
 	"character": "papyrus",

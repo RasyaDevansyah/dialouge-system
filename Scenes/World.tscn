@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://blj2mx7nglncy" path="res://Scenes/Player/PlayerTemplate.tscn" id="1_5cjrv"]
 [ext_resource type="Texture2D" uid="uid://8bnltx045gvw" path="res://godot-prototype-texture/Vector/checker_black_512x512.svg" id="1_j0p05"]
 [ext_resource type="Script" uid="uid://cbrx3iyc3speo" path="res://Scenes/dialogue_manager.gd" id="3_5nsto"]
-[ext_resource type="Script" uid="uid://mtcasspe3563" path="res://Scenes/interact.gd" id="4_gjpho"]
+[ext_resource type="Script" uid="uid://c6v486ddh0mts" path="res://Scenes/TalkInteract.gd" id="4_gjpho"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -45,20 +45,103 @@ size = Vector3(27.564697, 1, 26.71875)
 material = SubResource("StandardMaterial3D_5nsto")
 
 [node name="Player" parent="." instance=ExtResource("1_5cjrv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7527575, 1.5, 1.7488389)
+transform = Transform3D(0.24865611, 0, -0.9685918, 0, 1, 0, 0.9685918, 0, 0.24865611, -2.7527575, 1.5, 1.7488389)
 
-[node name="DialogueManager" type="Node3D" parent="."]
+[node name="DialogueManager" type="Node3D" parent="." node_paths=PackedStringArray("player", "label", "dialogue_box", "options", "optionsContainer")]
 script = ExtResource("3_5nsto")
 jsonDialogue = "res://JSONData/SD1.json"
+player = NodePath("../Player")
+label = NodePath("../CanvasLayer/DialogueBox/PanelContainer/VBoxContainer/TextBox/Label")
+dialogue_box = NodePath("../CanvasLayer/DialogueBox")
+options = NodePath("../CanvasLayer/DialogueBox/PanelContainer/VBoxContainer/Options")
+optionsContainer = NodePath("../CanvasLayer/DialogueBox/PanelContainer/VBoxContainer/Options/HBoxContainer")
 
-[node name="InteractObject" type="StaticBody3D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogueBox" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/DialogueBox"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -369.0
+offset_top = -188.0
+offset_right = 369.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DialogueBox/PanelContainer"]
+layout_mode = 2
+
+[node name="TextBox" type="MarginContainer" parent="CanvasLayer/DialogueBox/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/DialogueBox/PanelContainer/VBoxContainer/TextBox"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 21
+autowrap_mode = 1
+text_overrun_behavior = 1
+
+[node name="Options" type="MarginContainer" parent="CanvasLayer/DialogueBox/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DialogueBox/PanelContainer/VBoxContainer/Options"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/DialogueBox/PanelContainer/VBoxContainer/Options/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="CanvasLayer/DialogueBox/PanelContainer/VBoxContainer/Options/HBoxContainer"]
+layout_mode = 2
+
+[node name="InteractObject" type="StaticBody3D" parent="." node_paths=PackedStringArray("dialogue_manager")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7839775, 0.93860006, 0)
 script = ExtResource("4_gjpho")
-text = "Talk"
+dialogue_manager = NodePath("../DialogueManager")
+dialogue_id = "SD1"
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InteractObject"]
 mesh = SubResource("BoxMesh_5nsto")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractObject"]
+shape = SubResource("BoxShape3D_5nsto")
+
+[node name="InteractObject2" type="StaticBody3D" parent="." node_paths=PackedStringArray("dialogue_manager")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3743925, 0.93860006, 10.110013)
+script = ExtResource("4_gjpho")
+dialogue_manager = NodePath("../DialogueManager")
+dialogue_id = "SD1"
+dialogue_index = 3
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractObject2"]
+mesh = SubResource("BoxMesh_5nsto")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractObject2"]
 shape = SubResource("BoxShape3D_5nsto")

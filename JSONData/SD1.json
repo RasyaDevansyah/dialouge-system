@@ -1,0 +1,146 @@
+{
+  "SD1_0": {
+	"character": "papyrus",
+	"expression": "mad",
+	"text": [
+	  "SANS!!",
+      "WHERE'S THE PUZZLE!!!"
+	]
+  },
+  "SD1_1": {
+	"character": "sans",
+	"expression": "neutral",
+	"text": [
+	  "it's right there.",
+      "on the ground."
+	]
+  },
+  "SD1_2": {
+	"character": "sans",
+	"expression": "neutral",
+	"text": [
+	  "trust me.",
+      "there's no way they can get past this one."
+	],
+	"function": "end_dialogue"
+  },
+  "SD1_3": {
+	"character": "papyrus",
+	"expression": "mad",
+	"text": [
+	  "SANS!!!",
+      "THAT DIDN'T DO ANYTHING!"
+	]
+  },
+  "SD1_4": {
+	"character": "sans",
+	"expression": "neutral",
+	"text": "whoops."
+  },
+  "SD1_5": {
+	"character": "sans",
+	"expression": "neutral",
+	"text": "i knew i should have used today's crossword instead."
+  },
+  "SD1_6": {
+	"character": "papyrus",
+	"expression": "mad",
+	"text": [
+	  "WHAT!?",
+      "CROSSWORD!?"
+	]
+  },
+  "SD1_7": {
+	"character": "papyrus",
+	"expression": "mad",
+	"text": "I CAN'T BELIEVE YOU SAID THAT!!"
+  },
+  "SD1_8": {
+	"character": "papyrus",
+	"expression": "mad",
+	"text": "IN MY OPINION..."
+  },
+  "SD1_9": {
+	"character": "papyrus",
+	"expression": "mad",
+	"text": "JUNIOR JUMBLE IS EASILY THE HARDEST."
+  },
+  "SD1_10": {
+	"character": "sans",
+	"expression": "neutral",
+	"text": [
+	  "what? really, dude?",
+      "that easy-peasy word scramble?"
+	]
+  },
+  "SD1_11": {
+	"character": "sans",
+	"expression": "neutral",
+	"text": "that's for baby bones."
+  },
+  "SD1_12": {
+	"character": "papyrus",
+	"expression": "mad",
+	"text": "UN. BELIEVABLE."
+  },
+  "SD1_13": {
+	"character": "papyrus",
+	"expression": "mad",
+	"text": [
+	  "HUMAN!!!",
+      "SOVE THIS DISPUTE!"
+	]
+  },
+  "SD1_14": {
+	"character": null,
+	"expression": null,
+	"text": "(which is harder?)",
+	"go to": [
+	  "SD1_16",
+      "SD1_19"
+	],
+	"options": [
+	  "Jumble",
+      "Crossword"
+	]
+  },
+  "SD1_15": {
+	"character": "papyrus",
+	"expression": "happy",
+	"text": [
+	  "HA!",
+	  "HA!",
+      "YES!"
+	]
+  },
+  "SD1_16": {
+	"character": "papyrus",
+	"expression": "happy",
+	"text": "HUMANS MUST BE VERY INTELLIGENT!"
+  },
+  "SD1_17": {
+	"character": "papyrus",
+	"expression": "happy",
+	"text": "IF THEY ALSO FIND JUMBLE SO DIFFICULT!"
+  },
+  "SD1_18": {
+	"character": "papyrus",
+	"expression": "happy",
+	"text": [
+	  "NYEH!",
+	  "HEH!",
+      "HEH HEH!"
+	]
+  },
+  "SD1_19": {
+	"character": "papyrus",
+	"expression": "annoyed",
+	"text": "YOU TWO ARE WEIRD!"
+  },
+  "SD1_20": {
+	"character": "papyrus",
+	"expression": "annoyed",
+	"text": "CROSSWORDS ARE SO EASY.",
+	"function": "end_dialogue"
+  }
+}

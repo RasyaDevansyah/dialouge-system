@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbksmw6ttgxww"]
+[gd_scene load_steps=12 format=3 uid="uid://bbksmw6ttgxww"]
 
 [ext_resource type="PackedScene" uid="uid://blj2mx7nglncy" path="res://Scenes/Player/PlayerTemplate.tscn" id="1_5cjrv"]
 [ext_resource type="Texture2D" uid="uid://8bnltx045gvw" path="res://godot-prototype-texture/Vector/checker_black_512x512.svg" id="1_j0p05"]
+[ext_resource type="Script" uid="uid://cbrx3iyc3speo" path="res://Scenes/dialogue_manager.gd" id="3_5nsto"]
+[ext_resource type="Script" uid="uid://mtcasspe3563" path="res://Scenes/interact.gd" id="4_gjpho"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,6 +22,14 @@ glow_enabled = true
 albedo_texture = ExtResource("1_j0p05")
 uv1_triplanar = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjpho"]
+albedo_color = Color(0.9019608, 0.4392157, 0.4392157, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5nsto"]
+material = SubResource("StandardMaterial3D_gjpho")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5nsto"]
+
 [node name="World" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -36,3 +46,19 @@ material = SubResource("StandardMaterial3D_5nsto")
 
 [node name="Player" parent="." instance=ExtResource("1_5cjrv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7527575, 1.5, 1.7488389)
+
+[node name="DialogueManager" type="Node3D" parent="."]
+script = ExtResource("3_5nsto")
+jsonDialogue = "res://JSONData/SD1.json"
+
+[node name="InteractObject" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7839775, 0.93860006, 0)
+script = ExtResource("4_gjpho")
+text = "Talk"
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractObject"]
+mesh = SubResource("BoxMesh_5nsto")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractObject"]
+shape = SubResource("BoxShape3D_5nsto")

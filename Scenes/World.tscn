@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bbksmw6ttgxww"]
 
 [ext_resource type="PackedScene" uid="uid://blj2mx7nglncy" path="res://Scenes/Player/PlayerTemplate.tscn" id="1_5cjrv"]
-[ext_resource type="Texture2D" uid="uid://8bnltx045gvw" path="res://Scenes/godot-prototype-texture/Vector/checker_black_512x512.svg" id="1_j0p05"]
+[ext_resource type="Texture2D" uid="uid://8bnltx045gvw" path="res://godot-prototype-texture/Vector/checker_black_512x512.svg" id="1_j0p05"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

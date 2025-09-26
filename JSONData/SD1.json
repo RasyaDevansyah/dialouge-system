@@ -122,16 +122,16 @@
 	"character": "papyrus",
 	"expression": "happy",
 	"text": "IF THEY ALSO FIND JUMBLE SO DIFFICULT!",
-	"function": "end_dialogue"
   },
   "SD1_18": {
 	"character": "papyrus",
 	"expression": "happy",
 	"text": [
 	  "NYEH!",
-	  "HEH!",
-      "HEH HEH!"
-	]
+	  " HEH!",
+      " HEH HEH!"
+	],
+	"function": "end_dialogue"
   },
   "SD1_19": {
 	"character": "papyrus",
